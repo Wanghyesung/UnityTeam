@@ -8,7 +8,7 @@ public class MonsterAttack : MonoBehaviour
 
     private void Awake()
     {
-        m_tAttackInfo.iDamage = 40;
+        m_tAttackInfo.iDamage = 20;
     }
 
     // Start is called before the first frame update
@@ -22,7 +22,8 @@ public class MonsterAttack : MonoBehaviour
           
             if (player != null)
             {
-                BattleManager.GBattleManager.ActiveDamage(player.SetDamage, transform.position, m_tAttackInfo.iDamage);
+                BattleManager.GBattleManager.ActiveDamage
+                    (player.SetDamage, transform.position, m_tAttackInfo.iDamage);
             }
         }
     }

@@ -67,7 +67,10 @@ public class WarriorPlayer : Player
 
         ePlayerState eState = m_pFSM.GetCurPlayerState();
 
-        if (eState == ePlayerState.Defend || eState == ePlayerState.DefendEnter)
+        if (eState == ePlayerState.Hit || eState == ePlayerState.Roll)
+            return;
+
+        if (eState == ePlayerState.Defend)
         {
             m_pFSM.ChanageState(ePlayerState.DefendEnter);
             return;

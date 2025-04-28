@@ -24,7 +24,7 @@ public class Player_DefendEnter : PlayerState
 
     public override void Enter()
     { 
-        GetOwner().GetAnimator().SetTrigger("bDefendEnter");
+        GetOwner().GetAnimator().SetBool("bDefendEnter",true);
 
         Rigidbody2D pRigidbody = GetOwner().GetRigidbody2D();
         pRigidbody.drag = m_fHitDrag;
@@ -40,7 +40,9 @@ public class Player_DefendEnter : PlayerState
     public override void Exit()
     {
         GetOwner().GetPlayer().SetHit(false);
+
         GetOwner().GetAnimator().SetBool("bDefend", false);
+        GetOwner().GetAnimator().SetBool("bDefendEnter", false);
 
         Rigidbody2D pRigidbody = GetOwner().GetRigidbody2D();
         pRigidbody.drag = 0.0f;

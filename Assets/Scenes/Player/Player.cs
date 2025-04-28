@@ -60,11 +60,7 @@ public class Player : MonoBehaviour
 
     public virtual void SetDamage(Vector2 _vHitPoint, int _iDamage) 
     {
-        ePlayerState eState = m_pFSM.GetCurPlayerState();
-       
-        if (eState == ePlayerState.Hit || eState == ePlayerState.Roll)
-            return;
-
+        
         //hp -= _iDamage;
         Vector3 vWorldPos = GetComponent<Transform>().position;
         Vector2 vDir = new Vector2(vWorldPos.x, vWorldPos.y) - _vHitPoint ;

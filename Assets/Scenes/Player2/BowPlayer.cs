@@ -62,7 +62,12 @@ public class BowPlayer : Player
         if (m_tPlayerInfo.m_fHP <= 0)
             return;
 
+        ePlayerState eState = m_pFSM.GetCurPlayerState();
+
         base.SetDamage(_vHitPoint, _iDamage);
+
+        if (eState == ePlayerState.Hit || eState == ePlayerState.Roll)
+            return;
 
         set_damage(_iDamage);
 
